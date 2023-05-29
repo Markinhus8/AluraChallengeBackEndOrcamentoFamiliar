@@ -19,6 +19,7 @@ public class ReceitaController {
 
 	@RequestMapping("/receitas")
 	public List<ReceitaVO> listarTodasReceitas() {
+		//teste
 		List<Receita> receitas = receitaRepository.findAll();
 		return ReceitaVO.converter(receitas);
 	}
