@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.alura.orcamentoFamiliar.controller.dto.ReceitaVO;
+import br.com.alura.orcamentoFamiliar.controller.vo.ReceitaVO;
 import br.com.alura.orcamentoFamiliar.modelo.Receita;
 import br.com.alura.orcamentoFamiliar.repository.ReceitaRepository;
 

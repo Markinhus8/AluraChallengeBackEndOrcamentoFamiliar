@@ -1,4 +1,4 @@
-package br.com.alura.orcamentoFamiliar.controller.dto;
+package br.com.alura.orcamentoFamiliar.controller.vo;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
