@@ -10,7 +10,6 @@ import br.com.alura.orcamentoFamiliar.controller.dto.ReceitaVO;
 import br.com.alura.orcamentoFamiliar.modelo.Receita;
 import br.com.alura.orcamentoFamiliar.repository.ReceitaRepository;
 
-
 @RestController
 public class ReceitaController {
 	
@@ -19,7 +18,6 @@ public class ReceitaController {
 
 	@RequestMapping("/receitas")
 	public List<ReceitaVO> listarTodasReceitas() {
-		//testee
 		List<Receita> receitas = receitaRepository.findAll();
 		return ReceitaVO.converter(receitas);
 	}
