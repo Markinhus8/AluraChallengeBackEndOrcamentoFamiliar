@@ -13,21 +13,21 @@ public class Receita {
 
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	private String descricao;
 	private BigDecimal valor;
 	private LocalDate data;
-	
+
 	public Receita() {
-		
+
 	}
-	
+
 	public Receita(Receita receita) {
 		this.descricao = receita.getDescricao();
 		this.valor = receita.getValor();
 		this.data = receita.getData();
 	}
-	
+
 	public Long getId() {
 		return id;
 	}
