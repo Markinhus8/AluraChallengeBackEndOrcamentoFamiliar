@@ -6,27 +6,26 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.alura.orcamentoFamiliar.modelo.Despesa;
-import br.com.alura.orcamentoFamiliar.modelo.Receita;
 
 public class DespesaVO{
-	
+
 	private String descricao;
 	private BigDecimal valor;
 	private LocalDate data;
-	
+
 	public DespesaVO(Despesa despesa) {
 		this.descricao = despesa.getDescricao();
 		this.valor = despesa.getValor();
 		this.data = despesa.getData();
 	}
-	
+
 	public String getDescricao() {
 		return descricao;
 	}
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	
+
 	public BigDecimal getValor() {
 		return valor;
 	}
@@ -43,12 +42,12 @@ public class DespesaVO{
 		this.data = data;
 	}
 
-	public static List<DespesaVO> converter(List<Despesa> despesas){
+	public static List<DespesaVO> converterListaDespesaEntidadeParaVo(List<Despesa> despesas){
 		List<DespesaVO> vo = new ArrayList<>();
 		for(Despesa d : despesas) {
 			vo.add(new DespesaVO(d));
 		}
 		return vo;
-		
+
 	}
 }

@@ -13,21 +13,21 @@ public class Despesa {
 
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	private String descricao;
 	private BigDecimal valor;
 	private LocalDate data;
-	
+
 	public Despesa() {
-		
+
 	}
-	
+
 	public Despesa(Despesa despesa) {
 		this.descricao = despesa.getDescricao();
 		this.valor = despesa.getValor();
 		this.data = despesa.getData();
 	}
-	
+
 	public Long getId() {
 		return id;
 	}
