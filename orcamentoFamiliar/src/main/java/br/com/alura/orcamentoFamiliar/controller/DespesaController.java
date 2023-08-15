@@ -29,6 +29,7 @@ public class DespesaController {
 	@Autowired
 	private DespesaRepository despesaRepository;
 
+	
 	@GetMapping()
 	public ResponseEntity<List<DespesaVO>> listarTodasDespesas() {
 		List<Despesa> despesas = despesaRepository.findAll();

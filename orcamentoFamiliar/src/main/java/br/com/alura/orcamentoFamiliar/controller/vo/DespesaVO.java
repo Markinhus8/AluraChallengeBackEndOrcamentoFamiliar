@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.com.alura.orcamentoFamiliar.modelo.CategoriaDespesa;
 import br.com.alura.orcamentoFamiliar.modelo.Despesa;
 
 public class DespesaVO{
@@ -12,11 +13,13 @@ public class DespesaVO{
 	private String descricao;
 	private BigDecimal valor;
 	private LocalDate data;
+	private CategoriaDespesa categoria;
 
 	public DespesaVO(Despesa despesa) {
 		this.descricao = despesa.getDescricao();
 		this.valor = despesa.getValor();
 		this.data = despesa.getData();
+		this.categoria = despesa.getCategoria();
 	}
 
 	public String getDescricao() {
@@ -40,6 +43,14 @@ public class DespesaVO{
 
 	public void setData(LocalDate data) {
 		this.data = data;
+	}
+
+	public CategoriaDespesa getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(CategoriaDespesa categoria) {
+		this.categoria = categoria;
 	}
 
 	public static List<DespesaVO> converterListaDespesaEntidadeParaVo(List<Despesa> despesas){

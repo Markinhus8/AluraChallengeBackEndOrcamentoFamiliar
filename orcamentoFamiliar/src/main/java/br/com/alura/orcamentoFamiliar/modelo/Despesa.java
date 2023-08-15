@@ -4,6 +4,8 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -17,6 +19,8 @@ public class Despesa {
 	private String descricao;
 	private BigDecimal valor;
 	private LocalDate data;
+	@Enumerated(EnumType.STRING)
+	private CategoriaDespesa categoria;
 
 	public Despesa() {
 
@@ -57,4 +61,12 @@ public class Despesa {
 		this.data = data;
 	}
 
+	public CategoriaDespesa getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(CategoriaDespesa categoria) {
+		this.categoria = categoria;
+	}
+	
 }
