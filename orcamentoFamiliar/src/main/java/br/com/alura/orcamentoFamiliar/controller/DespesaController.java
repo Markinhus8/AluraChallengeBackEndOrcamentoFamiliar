@@ -30,11 +30,15 @@ public class DespesaController {
 	private DespesaRepository despesaRepository;
 
 	
-	@GetMapping()
-	public ResponseEntity<List<DespesaVO>> listarTodasDespesas() {
-		List<Despesa> despesas = despesaRepository.findAll();
-
-		return ResponseEntity.ok().body(DespesaVO.converterListaDespesaEntidadeParaVo(despesas));
+	@GetMapping
+	public ResponseEntity<List<DespesaVO>> listarTodasDespesas(String descricao) {
+		if (descricao == null) {
+			List<Despesa> despesas = despesaRepository.findAll();
+			return ResponseEntity.ok().body(DespesaVO.converterListaDespesaEntidadeParaVo(despesas));
+		} else {
+			List<Despesa> despesas = despesaRepository.findByDescricao(descricao);
+			return ResponseEntity.ok().body(DespesaVO.converterListaDespesaEntidadeParaVo(despesas));
+		}
 	}
 
 	@GetMapping("/{id}")
