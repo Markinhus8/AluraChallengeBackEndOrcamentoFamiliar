@@ -20,6 +20,7 @@ import br.com.alura.orcamentoFamiliar.controller.form.ReceitaForm;
 import br.com.alura.orcamentoFamiliar.controller.vo.ReceitaVO;
 import br.com.alura.orcamentoFamiliar.modelo.Receita;
 import br.com.alura.orcamentoFamiliar.repository.ReceitaRepository;
+import br.com.alura.orcamentoFamiliar.service.ReceitaService;
 import jakarta.validation.Valid;
 
 @RestController
@@ -28,6 +29,10 @@ public class ReceitaController {
 
 	@Autowired
 	private ReceitaRepository receitaRepository;
+	
+	@Autowired
+	private ReceitaService service;
+
 
 	@GetMapping
 	public ResponseEntity<List<ReceitaVO>> listarTodasReceitas(String descricao) {
@@ -51,6 +56,15 @@ public class ReceitaController {
 		}
 
 		return ResponseEntity.ok().body(new ReceitaVO(receita.get()));
+	}
+	
+	@GetMapping("/{ano}/{mes}")
+	public ResponseEntity<List<ReceitaVO>> findByMes(@PathVariable Integer ano, @PathVariable Integer mes) {
+		List<Receita> receitas = service.findByData(ano, mes);
+		if (receitas.isEmpty()) {
+			return ResponseEntity.notFound().build();
+		}
+		return ResponseEntity.ok().body(ReceitaVO.converterListaReceitaEntidadeParaVo(receitas));
 	}
 
 	@PostMapping
