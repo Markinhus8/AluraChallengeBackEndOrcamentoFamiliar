@@ -1,4 +1,4 @@
-package br.com.alura.orcamentoFamiliar.controller.config.validacao;
+package br.com.alura.orcamentoFamiliar.config.validacao;
 
 public class ErroDeFormularioVO {
 	

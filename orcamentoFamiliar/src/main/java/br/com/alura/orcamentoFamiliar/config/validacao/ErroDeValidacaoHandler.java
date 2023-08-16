@@ -1,4 +1,4 @@
-package br.com.alura.orcamentoFamiliar.controller.config.validacao;
+package br.com.alura.orcamentoFamiliar.config.validacao;
 
 import java.util.ArrayList;
 import java.util.List;
