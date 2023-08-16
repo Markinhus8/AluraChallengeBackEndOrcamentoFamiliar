@@ -3,9 +3,7 @@ package br.com.alura.orcamentoFamiliar.controller;
 import java.net.URI;
 import java.util.List;
 import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -17,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
-
 import br.com.alura.orcamentoFamiliar.controller.form.AtualizacaoReceitaForm;
 import br.com.alura.orcamentoFamiliar.controller.form.ReceitaForm;
 import br.com.alura.orcamentoFamiliar.controller.vo.ReceitaVO;
@@ -32,10 +29,15 @@ public class ReceitaController {
 	@Autowired
 	private ReceitaRepository receitaRepository;
 
-	@GetMapping()
-	public ResponseEntity<List<ReceitaVO>> listarTodasReceitas() {
-		List<Receita> receitas = receitaRepository.findAll();
-		return ResponseEntity.ok().body(ReceitaVO.converterListaReceitaEntidadeParaVo(receitas));
+	@GetMapping
+	public ResponseEntity<List<ReceitaVO>> listarTodasReceitas(String descricao) {
+		if (descricao == null) {
+			List<Receita> receitas = receitaRepository.findAll();
+			return ResponseEntity.ok().body(ReceitaVO.converterListaReceitaEntidadeParaVo(receitas));
+		} else {
+			List<Receita> receitas = receitaRepository.findByDescricao(descricao);
+			return ResponseEntity.ok().body(ReceitaVO.converterListaReceitaEntidadeParaVo(receitas));
+		}
 	}
 
 	@GetMapping("/{id}")
