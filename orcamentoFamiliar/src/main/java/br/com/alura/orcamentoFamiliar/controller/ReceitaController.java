@@ -59,8 +59,8 @@ public class ReceitaController {
 	}
 	
 	@GetMapping("/{ano}/{mes}")
-	public ResponseEntity<List<ReceitaVO>> findByMes(@PathVariable Integer ano, @PathVariable Integer mes) {
-		List<Receita> receitas = service.findByData(ano, mes);
+	public ResponseEntity<List<ReceitaVO>> buscarPeloMesAno(@PathVariable Integer ano, @PathVariable Integer mes) {
+		List<Receita> receitas = service.buscarPeloMesAno(ano, mes);
 		if (receitas.isEmpty()) {
 			return ResponseEntity.notFound().build();
 		}

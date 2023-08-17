@@ -16,7 +16,7 @@ public class ReceitaService {
 	private ReceitaRepository repository;
 	
 	@Transactional
-	public List<Receita> findByData(Integer ano, Integer mes) {
+	public List<Receita> buscarPeloMesAno(Integer ano, Integer mes) {
 
 		LocalDate dataInicial = LocalDate.of(ano, mes, 1);
 		LocalDate dataFinal = dataInicial.with(TemporalAdjusters.lastDayOfMonth());
