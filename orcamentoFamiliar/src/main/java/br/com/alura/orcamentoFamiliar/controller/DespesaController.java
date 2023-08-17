@@ -3,7 +3,6 @@ package br.com.alura.orcamentoFamiliar.controller;
 import java.net.URI;
 import java.util.List;
 import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,11 +14,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
-
 import br.com.alura.orcamentoFamiliar.controller.form.DespesaForm;
 import br.com.alura.orcamentoFamiliar.controller.vo.DespesaVO;
 import br.com.alura.orcamentoFamiliar.modelo.Despesa;
 import br.com.alura.orcamentoFamiliar.repository.DespesaRepository;
+import br.com.alura.orcamentoFamiliar.service.DespesaService;
 import jakarta.validation.Valid;
 
 @RestController
@@ -28,6 +27,9 @@ public class DespesaController {
 
 	@Autowired
 	private DespesaRepository despesaRepository;
+	
+	@Autowired
+	private DespesaService service;
 
 	
 	@GetMapping
@@ -52,6 +54,15 @@ public class DespesaController {
 		}
 
 		return ResponseEntity.ok().body(new DespesaVO(despesa.get()));
+	}
+	
+	@GetMapping("/{ano}/{mes}")
+	public ResponseEntity<List<DespesaVO>> buscarPeloMesAno(@PathVariable Integer ano, @PathVariable Integer mes) {
+		List<Despesa> despesas = service.buscarPeloMesAno(ano, mes);
+		if (despesas.isEmpty()) {
+			return ResponseEntity.notFound().build();
+		}
+		return ResponseEntity.ok().body(DespesaVO.converterListaDespesaEntidadeParaVo(despesas));
 	}
 
 	@PostMapping
