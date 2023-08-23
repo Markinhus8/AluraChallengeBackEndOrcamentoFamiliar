@@ -90,14 +90,23 @@ public class ReceitaController {
 				.created(uri)
 				.body(new ReceitaVO(itemSalvo));
 	}
-
+	
+	
+	//As mesmas regras de negócio do cadastro de uma receita foram realizadas também na atualização dela.
 	@PutMapping("/{id}")
 	@Transactional
-	public ResponseEntity<ReceitaVO> atualizar(@PathVariable Long id, @RequestBody @Valid AtualizacaoReceitaForm form, UriComponentsBuilder uriBuilder) {
+	public ResponseEntity<?> atualizar(@PathVariable Long id, @RequestBody @Valid AtualizacaoReceitaForm form, UriComponentsBuilder uriBuilder) {
 		Optional<Receita> optional = receitaRepository.findById(id);
 		if (optional.isPresent()) {
-			Receita receita = form.atualizar(id, receitaRepository);
-			return ResponseEntity.ok(new ReceitaVO(receita));
+			if (form.validarMesmaDescricaoDentroDoMesmoMes(receitaRepository)) {
+				return ResponseEntity
+						.badRequest()
+						.body("Receita duplicada");
+			}else{
+				Receita receita = form.atualizar(id, receitaRepository);
+				return ResponseEntity.ok(new ReceitaVO(receita));
+				
+			}
 
 		}
 

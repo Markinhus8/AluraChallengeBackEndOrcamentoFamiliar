@@ -12,9 +12,12 @@ import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 
 public class AtualizacaoReceitaForm {
-
+	
+	@NotEmpty(message="A descrição deve ser informada")
 	private String descricao;
+	@NotNull(message="Um valor deve ser informado")
 	private BigDecimal valor;
+	@NotNull(message="A data deve ser informada")
 	@JsonFormat(pattern="dd/MM/yyyy")
 	private LocalDate data;
 
