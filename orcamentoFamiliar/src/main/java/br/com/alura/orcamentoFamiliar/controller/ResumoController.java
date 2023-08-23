@@ -25,13 +25,13 @@ public class ResumoController {
 	@Autowired
 	DespesaRepository despesaRepository;
 	
-	//Resumo do mês
-	/*Endpoint para detalhar o resumo de determinado mês.
+	// Resumo do mês
+	/* Endpoint para detalhar o resumo de determinado mês.
 	O resumo do mês deve conter as seguintes informações:
 	Valor total das receitas no mês
 	Valor total das despesas no mês
 	Saldo final no mês
-	Valor total gasto no mês em cada uma das categorias*/
+	Valor total gasto no mês em cada uma das categorias */
 	@GetMapping("{ano}/{mes}")
 	public ResponseEntity<?> exibirResumo(@PathVariable Integer ano, @PathVariable Integer mes) {
 		LocalDate dataInicial;
