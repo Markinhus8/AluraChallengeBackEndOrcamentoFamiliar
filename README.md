@@ -6,9 +6,9 @@ API REST para cadastro de receitas, despesas e geração de relatórios mensais 
 
 ## 🔨 Funcionalidades
 
-✔️ Adicionar, consultar, atualizar e deletar despesas.
-
 ✔️ Adicionar, consultar, atualizar e deletar receitas.
+
+✔️ Adicionar, consultar, atualizar e deletar despesas.
 
 ✔️ Resumo mensal com o total de despesas, receitas, saldo mensal e o total gasto por categoria.
 
