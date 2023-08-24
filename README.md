@@ -5,7 +5,7 @@ Challenge Alura BackEnd Orcamento Familiar
 
 API REST para controle de orçamento. Projeto desenvolvido para o **Alura Challenge - Back-End 4ª edição**
 
-API REST para cadastro de receitas e despesas e geração de relatórios mensais com total e saldo.
+API REST para cadastro de receitas, despesas e geração de relatórios mensais com total e saldo.
 
 ## 🔨 Funcionalidades
 
