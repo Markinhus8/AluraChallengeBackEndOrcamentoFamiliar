@@ -1,7 +1,6 @@
 # AluraChallengeBackEndOrcamentoFamiliar
 Challenge Alura BackEnd Orcamento Familiar
 
-API para gestão do orçamento doméstico
 Este é um projeto que fiz para o 4º Alura Backend Challenge . É uma API para gerenciamento de orçamento doméstico desenvolvida em Java usando o Spring Framework . Utilizei o banco de dados em memória H2.
 
 O projeto possui funcionalidades CRUD para gerenciamento de receitas, despesas e possui resumo mensal.
