@@ -38,7 +38,7 @@ API REST para cadastro de receitas, despesas e geração de relatórios mensais 
 ### Despesas
 | Rota | Método | Descrição | BODY PARAMS | QUERY PARAMS |
 | --- | --- | --- | --- | --- |
-| /despesas | POST | Cadastra uma despesa |  <pre> {<br> "descricao": "Condominio",<br> "valor": 100.00,<br> "data": "05/01/2023",<br> "categoria": "MORADIA"<br>} </pre> O campo id_categoria é opcional (ver ids correspondentes na tabela Categoria) | - |
+| /despesas | POST | Cadastra uma despesa |  <pre> {<br> "descricao": "Condominio",<br> "valor": 100.00,<br> "data": "05/01/2023",<br> "categoria": "MORADIA"<br>} </pre> O campo categoria é opcional | - |
 | /despesas | GET | Retorna todas as despesas | - | descricao (opcional) |
 | /despesas/{ano}/{mes} | GET | Retorna todas as despesas do mês | - | - |
 | /despesas/{id} | GET | Retorna despesas por id | - | - |
@@ -51,8 +51,8 @@ API REST para cadastro de receitas, despesas e geração de relatórios mensais 
 | /resumo/{ano}/{mes} | GET | Retorna resumo do mês | - | - |
 
 ### Categorias disponíveis
-| Nome | Id |
-| --- | --- |
+| Nome |
+| --- |
 | Alimentação |
 | Saúde |
 | Moradia |
