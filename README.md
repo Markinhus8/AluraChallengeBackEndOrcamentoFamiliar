@@ -1,19 +1,28 @@
 # AluraChallengeBackEndOrcamentoFamiliar
 Challenge Alura BackEnd Orcamento Familiar
 
-📖 Descrição do Projeto
-API REST para controle de orçamento. Projeto desenvolvido para o Alura Challenge - Back-End 4ª edição
+## 📖 Descrição do Projeto
 
-API REST para cadastro de receitas, despesas e geração de relatórios mensais com total e saldo.
+API REST para controle de orçamento. Projeto desenvolvido para o **Alura Challenge - Back-End 4ª edição**
 
-🔨 Funcionalidades
-✔️ Adicionar, consultar, atualizar e deletar receitas.
+API REST para cadastro de receitas e despesas e geração de relatórios mensais com total e saldo.
+
+## 🔨 Funcionalidades
+
 ✔️ Adicionar, consultar, atualizar e deletar despesas.
+
+✔️ Adicionar, consultar, atualizar e deletar receitas.
+
 ✔️ Resumo mensal com o total de despesas, receitas, saldo mensal e o total gasto por categoria.
 
-🧰 Tecnologias utilizadas
-Java
-Spring Framework
-Banco de dados em memória H2
-Postman
+
+## 🧰 Tecnologias utilizadas
+* Java
+* Spring Framework
+* Maven
+* JPA
+* Eclipse IDE
+* Banco de dados em memória H2
+* Postman
+* Trello
 
