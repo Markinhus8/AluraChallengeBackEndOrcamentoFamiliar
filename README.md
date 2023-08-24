@@ -5,7 +5,7 @@ Este é um projeto que fiz para o 4º Alura Backend Challenge . É uma API para 
 
 O projeto possui funcionalidades CRUD para gerenciamento de receitas, despesas e possui resumo mensal.
 
-Receitas
+Receitas - 
 Suporta métodos GET, POST, PUT e DELETE para /receitas. Contém os seguintes campos:
 
 "Id", (Auto generated)
@@ -13,7 +13,7 @@ Suporta métodos GET, POST, PUT e DELETE para /receitas. Contém os seguintes ca
 "Descricao",
 "Valor"
 
-Despesas
+Despesas - 
 Suporta métodos GET, POST, PUT e DELETE para /despesas. Contém os seguintes campos:
 
 "Id", (//Auto generated)
