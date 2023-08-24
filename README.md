@@ -25,3 +25,5 @@ Suporta métodos GET, POST, PUT e DELETE para /despesas. Contém os seguintes ca
 Resumo Mensal
 Possui uma solicitação GET para /resumo/{year}/{month}
 Ele retornará um JSON contendo o valor total das receitas, despesas, o saldo e as despesas totais por categoria.
+
+Para execução das rotas foi executado o Postman.
