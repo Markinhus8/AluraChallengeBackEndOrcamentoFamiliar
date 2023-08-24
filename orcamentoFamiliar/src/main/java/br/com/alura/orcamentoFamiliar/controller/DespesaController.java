@@ -10,10 +10,13 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
+
+import br.com.alura.orcamentoFamiliar.controller.form.AtualizacaoDespesaForm;
 import br.com.alura.orcamentoFamiliar.controller.form.DespesaForm;
 import br.com.alura.orcamentoFamiliar.controller.vo.DespesaVO;
 import br.com.alura.orcamentoFamiliar.modelo.Despesa;
@@ -88,6 +91,27 @@ public class DespesaController {
 				.created(uri)
 				.body(new DespesaVO(itemSalvo));
 	}
+	
+	//As mesmas regras de negócio do cadastro de uma despesa foram realizadas também na atualização dela.
+		@PutMapping("/{id}")
+		@Transactional
+		public ResponseEntity<?> atualizar(@PathVariable Long id, @RequestBody @Valid AtualizacaoDespesaForm form, UriComponentsBuilder uriBuilder) {
+			Optional<Despesa> optional = despesaRepository.findById(id);
+			if (optional.isPresent()) {
+				if (form.validarMesmaDescricaoDentroDoMesmoMes(despesaRepository)) {
+					return ResponseEntity
+							.badRequest()
+							.body("Despesa duplicada");
+				}else{
+					Despesa despesa = form.atualizar(id, despesaRepository);
+					return ResponseEntity.ok(new DespesaVO(despesa));
+					
+				}
+
+			}
+
+			return ResponseEntity.notFound().build();
+		}
 	
 	@DeleteMapping("/{id}")
 	@Transactional
