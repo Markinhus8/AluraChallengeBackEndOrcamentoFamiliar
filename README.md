@@ -1,6 +1,3 @@
-# AluraChallengeBackEndOrcamentoFamiliar
-Challenge Alura BackEnd Orcamento Familiar
-
 ## 📖 Descrição do Projeto
 
 API REST para controle de orçamento. Projeto desenvolvido para o **Alura Challenge - Back-End 4ª edição**
