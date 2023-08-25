@@ -31,7 +31,7 @@ API REST para cadastro de receitas, despesas e geração de relatórios mensais 
 | /receitas | POST | Cadastra uma receita | <pre> {<br> "descricao": "Salario",<br> "valor": 8.000,<br> "data": "01/01/2023"<br>} </pre> | - |
 | /receitas | GET | Retorna todas as receitas | - | descricao (opcional) |
 | /receitas/{ano}/{mes} | GET | Retorna todas as receitas do mês | - | - |
-| /receitas/{id} | GET | Retorna receita por id | - | - |
+| /receitas/{id} | GET | Retorna receita por id |  |  |
 | /receitas/{id} | PUT | Atualiza receita por id | <pre> {<br> "descricao": "Salario",<br> "valor": 8.000,<br> "data": "01/01/2023"<br>} </pre> | - |
 | /receitas/{id} | DELETE | Remove receita por id | - | - |
 
@@ -41,7 +41,7 @@ API REST para cadastro de receitas, despesas e geração de relatórios mensais 
 | /despesas | POST | Cadastra uma despesa |  <pre> {<br> "descricao": "Condominio",<br> "valor": 100.00,<br> "data": "05/01/2023",<br> "categoria": "MORADIA"<br>} </pre> O campo categoria é opcional | - |
 | /despesas | GET | Retorna todas as despesas | - | descricao (opcional) |
 | /despesas/{ano}/{mes} | GET | Retorna todas as despesas do mês | - | - |
-| /despesas/{id} | GET | Retorna despesas por id | - | - |
+| /despesas/{id} | GET | Retorna despesa por id |  |  |
 | /despesas/{id} | PUT | Atualiza despesa por id |  <pre> {<br> "descricao": "Condominio",<br> "valor": 100.00,<br> "data": "05/01/2023",<br> "categoria": "MORADIA"<br>} </pre> O campo categoria é opcional  | - |
 | /despesas/{id} | DELETE | Remove despesa por id | - | - |
 
