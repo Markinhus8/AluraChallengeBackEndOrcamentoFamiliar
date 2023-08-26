@@ -115,7 +115,7 @@ public class ReceitaController {
 
 	@DeleteMapping("/{id}")
 	@Transactional
-	public ResponseEntity remover(@PathVariable Long id) {
+	public ResponseEntity<?> remover(@PathVariable Long id) {
 		receitaRepository.deleteById(id);
 		return ResponseEntity.ok().build();
 	}
