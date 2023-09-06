@@ -117,7 +117,7 @@ public class ReceitaController {
 	@Transactional
 	public ResponseEntity<?> remover(@PathVariable Long id) {
 		receitaRepository.deleteById(id);
-		return ResponseEntity.ok().build();
+		return ResponseEntity.noContent().build();
 	}
 
 }

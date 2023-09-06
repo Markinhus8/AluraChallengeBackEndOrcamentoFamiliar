@@ -116,7 +116,7 @@ public class DespesaController {
 	@Transactional
 	public ResponseEntity<?> remover(@PathVariable Long id) {
 		despesaRepository.deleteById(id);
-		return ResponseEntity.ok().build();
+		return ResponseEntity.noContent().build();
 	}
 
 }
