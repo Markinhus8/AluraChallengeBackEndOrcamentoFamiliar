@@ -29,11 +29,11 @@ public class DespesaController {
 
 	@Autowired
 	private DespesaRepository despesaRepository;
-	
+
 	@Autowired
 	private DespesaService service;
 
-	
+
 	@GetMapping
 	public ResponseEntity<List<DespesaVO>> listarTodasDespesas(String descricao) {
 		if (descricao == null) {
@@ -57,7 +57,7 @@ public class DespesaController {
 
 		return ResponseEntity.ok().body(new DespesaVO(despesa.get()));
 	}
-	
+
 	@GetMapping("/{ano}/{mes}")
 	public ResponseEntity<List<DespesaVO>> buscarPeloMesAno(@PathVariable Integer ano, @PathVariable Integer mes) {
 		List<Despesa> despesas = service.buscarPeloMesAno(ano, mes);
@@ -90,33 +90,39 @@ public class DespesaController {
 				.created(uri)
 				.body(new DespesaVO(itemSalvo));
 	}
-	
+
 	//As mesmas regras de negócio do cadastro de uma despesa foram realizadas também na atualização dela.
-		@PutMapping("/{id}")
-		@Transactional
-		public ResponseEntity<?> atualizar(@PathVariable Long id, @RequestBody @Valid AtualizacaoDespesaForm form, UriComponentsBuilder uriBuilder) {
-			Optional<Despesa> optional = despesaRepository.findById(id);
-			if (optional.isPresent()) {
-				if (form.validarMesmaDescricaoDentroDoMesmoMes(despesaRepository)) {
-					return ResponseEntity
-							.badRequest()
-							.body("Despesa duplicada");
-				}else{
-					Despesa despesa = form.atualizar(id, despesaRepository);
-					return ResponseEntity.ok(new DespesaVO(despesa));
-					
-				}
+	@PutMapping("/{id}")
+	@Transactional
+	public ResponseEntity<?> atualizar(@PathVariable Long id, @RequestBody @Valid AtualizacaoDespesaForm form, UriComponentsBuilder uriBuilder) {
+		Optional<Despesa> optional = despesaRepository.findById(id);
+		if (optional.isPresent()) {
+			if (form.validarMesmaDescricaoDentroDoMesmoMes(despesaRepository)) {
+				return ResponseEntity
+						.badRequest()
+						.body("Despesa duplicada");
+			}else{
+				Despesa despesa = form.atualizar(id, despesaRepository);
+				return ResponseEntity.ok(new DespesaVO(despesa));
 
 			}
 
-			return ResponseEntity.notFound().build();
 		}
-	
+
+		return ResponseEntity.notFound().build();
+	}
+
 	@DeleteMapping("/{id}")
 	@Transactional
 	public ResponseEntity<?> remover(@PathVariable Long id) {
-		despesaRepository.deleteById(id);
-		return ResponseEntity.noContent().build();
+
+		Optional<Despesa> optional = despesaRepository.findById(id);
+		if (optional.isPresent()) {
+			despesaRepository.deleteById(id);
+			return ResponseEntity.noContent().build();
+		}else {
+			return ResponseEntity.notFound().build();
+		}
 	}
 
 }
