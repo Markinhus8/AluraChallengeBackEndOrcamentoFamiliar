@@ -39,11 +39,15 @@ public class ReceitaController {
 		if (descricao == null) {
 			List<Receita> receitas = receitaRepository.findAll();
 			return ResponseEntity.ok().body(ReceitaVO.converterListaReceitaEntidadeParaVo(receitas));
-		} else {
+		}else {
 			List<Receita> receitas = receitaRepository.findByDescricao(descricao);
-			return ResponseEntity.ok().body(ReceitaVO.converterListaReceitaEntidadeParaVo(receitas));
-		}
-	}
+
+			if (!receitas.isEmpty()) {
+				return ResponseEntity.ok().body(ReceitaVO.converterListaReceitaEntidadeParaVo(receitas));
+			}else {
+				return ResponseEntity.notFound().build();
+			}
+		}}
 
 	@GetMapping("/{id}")
 	public ResponseEntity<ReceitaVO> detalharReceita(@PathVariable Long id){
