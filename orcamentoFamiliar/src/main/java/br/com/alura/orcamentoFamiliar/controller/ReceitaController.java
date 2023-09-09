@@ -29,7 +29,7 @@ public class ReceitaController {
 
 	@Autowired
 	private ReceitaRepository receitaRepository;
-	
+
 	@Autowired
 	private ReceitaService service;
 
@@ -57,7 +57,7 @@ public class ReceitaController {
 
 		return ResponseEntity.ok().body(new ReceitaVO(receita.get()));
 	}
-	
+
 	@GetMapping("/{ano}/{mes}")
 	public ResponseEntity<List<ReceitaVO>> buscarPeloMesAno(@PathVariable Integer ano, @PathVariable Integer mes) {
 		List<Receita> receitas = service.buscarPeloMesAno(ano, mes);
@@ -90,8 +90,8 @@ public class ReceitaController {
 				.created(uri)
 				.body(new ReceitaVO(itemSalvo));
 	}
-	
-	
+
+
 	//As mesmas regras de negócio do cadastro de uma receita foram realizadas também na atualização dela.
 	@PutMapping("/{id}")
 	@Transactional
@@ -105,7 +105,7 @@ public class ReceitaController {
 			}else{
 				Receita receita = form.atualizar(id, receitaRepository);
 				return ResponseEntity.ok(new ReceitaVO(receita));
-				
+
 			}
 
 		}
@@ -116,9 +116,15 @@ public class ReceitaController {
 	@DeleteMapping("/{id}")
 	@Transactional
 	public ResponseEntity<?> remover(@PathVariable Long id) {
-		receitaRepository.deleteById(id);
-		return ResponseEntity.noContent().build();
-	}
 
+		Optional<Receita> optional = receitaRepository.findById(id);
+		if (optional.isPresent()) {
+			receitaRepository.deleteById(id);
+			return ResponseEntity.noContent().build();
+		}else {
+			return ResponseEntity.notFound().build();
+		}
+	}
 }
+
 
