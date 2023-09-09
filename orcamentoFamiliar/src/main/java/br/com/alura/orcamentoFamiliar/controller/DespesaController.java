@@ -41,9 +41,13 @@ public class DespesaController {
 			return ResponseEntity.ok().body(DespesaVO.converterListaDespesaEntidadeParaVo(despesas));
 		} else {
 			List<Despesa> despesas = despesaRepository.findByDescricao(descricao);
-			return ResponseEntity.ok().body(DespesaVO.converterListaDespesaEntidadeParaVo(despesas));
-		}
-	}
+
+			if (!despesas.isEmpty()) {
+				return ResponseEntity.ok().body(DespesaVO.converterListaDespesaEntidadeParaVo(despesas));
+			}else {
+				return ResponseEntity.notFound().build();
+			}
+		}}
 
 	@GetMapping("/{id}")
 	public ResponseEntity<DespesaVO> detalharDespesa(@PathVariable Long id){
