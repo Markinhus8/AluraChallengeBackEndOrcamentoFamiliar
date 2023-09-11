@@ -42,11 +42,8 @@ public class DespesaController {
 		} else {
 			List<Despesa> despesas = despesaRepository.findByDescricao(descricao);
 
-			if (!despesas.isEmpty()) {
-				return ResponseEntity.ok().body(DespesaVO.converterListaDespesaEntidadeParaVo(despesas));
-			}else {
-				return ResponseEntity.notFound().build();
-			}
+			return ResponseEntity.ok().body(DespesaVO.converterListaDespesaEntidadeParaVo(despesas));
+
 		}}
 
 	@GetMapping("/{id}")
