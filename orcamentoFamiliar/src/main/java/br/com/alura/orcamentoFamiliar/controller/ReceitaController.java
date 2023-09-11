@@ -42,11 +42,8 @@ public class ReceitaController {
 		}else {
 			List<Receita> receitas = receitaRepository.findByDescricao(descricao);
 
-			if (!receitas.isEmpty()) {
-				return ResponseEntity.ok().body(ReceitaVO.converterListaReceitaEntidadeParaVo(receitas));
-			}else {
-				return ResponseEntity.notFound().build();
-			}
+			return ResponseEntity.ok().body(ReceitaVO.converterListaReceitaEntidadeParaVo(receitas));
+
 		}}
 
 	@GetMapping("/{id}")
