@@ -12,14 +12,17 @@ API REST para cadastro de receitas, despesas e geração de relatórios mensais 
 
 ✔️ Resumo mensal com o total de despesas, receitas, saldo mensal e o total gasto por categoria.
 
+✔️ Autenticação de usuário com Token JWT.
+
 
 ## 🧰 Tecnologias utilizadas
 * Java
 * Spring Framework
 * Maven
 * JPA
-* Eclipse IDE
 * Banco de dados em memória H2
+* Token JWT
+* Eclipse IDE
 * Postman
 * Trello
 
