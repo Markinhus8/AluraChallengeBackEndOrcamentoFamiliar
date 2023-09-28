@@ -5,3 +5,5 @@ INSERT INTO Despesa(descricao, valor, data, categoria) VALUES ('Luz', 66, '2023-
 INSERT INTO Despesa(descricao, valor, data, categoria) VALUES ('Unimed', 100, '2023-05-09', 'SAUDE');
 INSERT INTO Despesa(descricao, valor, data, categoria) VALUES ('Academia', 450, '2023-05-10', 'LAZER');
 INSERT INTO Despesa(descricao, valor, data, categoria) VALUES ('Gasolina', 158, '2023-05-11', 'TRANSPORTE');
+
+INSERT INTO Usuarios values (1, 'ana.souza@voll.med', '$2a$10$Y50UaMFOxteibQEYLrwuHeehHYfcoafCopUazP12.rqB41bsolF5.');
