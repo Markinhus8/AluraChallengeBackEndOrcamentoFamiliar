@@ -14,6 +14,8 @@ API REST para cadastro de receitas, despesas e geração de relatórios mensais 
 
 ✔️ Autenticação de usuário com Token JWT.
 
+✔️ Uso da biblioteca SpringDoc no projeto para que faça a geração automatizada da documentação da API e uso do Swagger UI para visualizar e testar a API Rest.
+
 
 ## 🧰 Tecnologias utilizadas
 * Java
@@ -22,6 +24,7 @@ API REST para cadastro de receitas, despesas e geração de relatórios mensais 
 * JPA
 * Banco de dados em memória H2
 * Token JWT
+* SpringDoc e Swagger UI
 * Eclipse IDE
 * Postman
 * Trello
