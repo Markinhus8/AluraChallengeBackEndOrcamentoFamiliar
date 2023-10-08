@@ -14,9 +14,11 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.alura.orcamentoFamiliar.controller.vo.ResumoVO;
 import br.com.alura.orcamentoFamiliar.repository.DespesaRepository;
 import br.com.alura.orcamentoFamiliar.repository.ReceitaRepository;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 
 @RestController
 @RequestMapping("/resumo")
+@SecurityRequirement(name = "bearer-key")
 public class ResumoController {
 
 	@Autowired

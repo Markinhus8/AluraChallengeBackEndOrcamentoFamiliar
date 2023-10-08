@@ -21,10 +21,12 @@ import br.com.alura.orcamentoFamiliar.controller.vo.DespesaVO;
 import br.com.alura.orcamentoFamiliar.modelo.Despesa;
 import br.com.alura.orcamentoFamiliar.repository.DespesaRepository;
 import br.com.alura.orcamentoFamiliar.service.DespesaService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/despesas")
+@SecurityRequirement(name = "bearer-key")
 public class DespesaController {
 
 	@Autowired

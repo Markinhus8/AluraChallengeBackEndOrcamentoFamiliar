@@ -21,10 +21,12 @@ import br.com.alura.orcamentoFamiliar.controller.vo.ReceitaVO;
 import br.com.alura.orcamentoFamiliar.modelo.Receita;
 import br.com.alura.orcamentoFamiliar.repository.ReceitaRepository;
 import br.com.alura.orcamentoFamiliar.service.ReceitaService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/receitas")
+@SecurityRequirement(name = "bearer-key")
 public class ReceitaController {
 
 	@Autowired
