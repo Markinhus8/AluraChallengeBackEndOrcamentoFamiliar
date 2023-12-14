@@ -98,7 +98,7 @@ public class ReceitaController {
 	//As mesmas regras de negócio do cadastro de uma receita foram realizadas também na atualização dela.
 	@PutMapping("/{id}")
 	@Transactional
-	public ResponseEntity<?> atualizar(@PathVariable Long id, @RequestBody @Valid AtualizacaoReceitaForm form, UriComponentsBuilder uriBuilder) {
+	public ResponseEntity<?> atualizar(@PathVariable Long id, @RequestBody @Valid AtualizacaoReceitaForm form) {
 		Optional<Receita> optional = receitaRepository.findById(id);
 		if (optional.isPresent()) {
 			if (form.validarMesmaDescricaoDentroDoMesmoMes(receitaRepository)) {

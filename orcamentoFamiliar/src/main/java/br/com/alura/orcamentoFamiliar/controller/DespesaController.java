@@ -97,7 +97,7 @@ public class DespesaController {
 	//As mesmas regras de negócio do cadastro de uma despesa foram realizadas também na atualização dela.
 	@PutMapping("/{id}")
 	@Transactional
-	public ResponseEntity<?> atualizar(@PathVariable Long id, @RequestBody @Valid AtualizacaoDespesaForm form, UriComponentsBuilder uriBuilder) {
+	public ResponseEntity<?> atualizar(@PathVariable Long id, @RequestBody @Valid AtualizacaoDespesaForm form) {
 		Optional<Despesa> optional = despesaRepository.findById(id);
 		if (optional.isPresent()) {
 			if (form.validarMesmaDescricaoDentroDoMesmoMes(despesaRepository)) {
