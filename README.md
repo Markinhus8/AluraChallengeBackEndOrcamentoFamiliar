@@ -16,6 +16,9 @@ API REST para cadastro de receitas, despesas e geração de relatórios mensais 
 
 ✔️ Uso da biblioteca SpringDoc no projeto para que faça a geração automatizada da documentação da API e uso do Swagger UI para visualizar e testar a API Rest.
 
+✔️ Uso do Jacoco para fazer a cobertura de testes na aplicação.
+
+
 
 ## 🧰 Tecnologias utilizadas
 * Java
@@ -28,6 +31,7 @@ API REST para cadastro de receitas, despesas e geração de relatórios mensais 
 * Eclipse IDE
 * Postman
 * Trello
+* Jacoco
 
 * ## Rotas
 
@@ -54,7 +58,7 @@ API REST para cadastro de receitas, despesas e geração de relatórios mensais 
 ### Resumo
 | Rota | Método | Descrição | BODY PARAMS | QUERY PARAMS |
 | --- | --- | --- | --- | --- |
-| /resumo/{ano}/{mes} | GET | Retorna resumo do mês | - | - |
+| /resumo/{ano}/{mes} | GET | Retorna resumo do mês |  |  |
 
 ### Categorias disponíveis
 | Nome |
